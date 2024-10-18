@@ -1,0 +1,25 @@
+.header {
+  width: 100%;
+  background-color: black;
+  padding: 24px;
+}
+
+.link {
+  display: flex;
+  align-items: first center;
+  justify-content: center;
+  min-width: 100px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: rgb(24, 35, 6);
+  color: darkgray;
+}
+
+.linksWrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.active {
+  background-color: rgb(87, 90, 90);
+}

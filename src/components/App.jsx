@@ -16,16 +16,40 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
-import styles from './App.module.css';
+import css from './App.module.css';
 import './App.module.css';
 import clsx from 'clsx';
-import Product from './product/Product';
-import taskItem from './task.json';
 import { object } from 'prop-types';
-import ArticleList from './ArticleList/ArticleList';
-import { fetchArticlesWithTopic } from './articles-api';
-import { SearchForm } from './SearchForm/SearchForm';
 import { NavLink, Route, Routes, useParams } from 'react-router-dom';
+import Header from './Header/Header';
+import HomePage from '../pages/HomePage';
+import MoviesPage from '../pages/MoviesPage';
+import NotFoundPage from '../pages/NotFoundPage';
+import MovieDetailsPage from '../pages/MovieDetailsPage';
+import MovieCast from './MovieCast/MovieCast';
+import MovieReviews from './MovieReviews/MovieReviews';
+
+////////////////////  HW-05  //////////////////
+
+const App = () => {
+  const { movieId } = useParams;
+
+  return (
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </div>
+  );
+};
 
 /////////////////  Компоненти <Route> та <Routes>  /////////
 /////////////////  Компоненти <Link> та <NavLink>  /////////
