@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Route, Routes, useParams } from 'react-router-dom';
 import clsx from 'clsx';
-import css from './MovieDetailsPage.css';
+import css from './MovieDetailsPage.module.css';
 
 const moviesActive = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);

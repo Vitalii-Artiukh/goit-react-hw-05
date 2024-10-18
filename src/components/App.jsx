@@ -28,12 +28,14 @@ import NotFoundPage from '../pages/NotFoundPage';
 import MovieDetailsPage from '../pages/MovieDetailsPage';
 import MovieCast from './MovieCast/MovieCast';
 import MovieReviews from './MovieReviews/MovieReviews';
+import { fetchMoviesTrend } from './API/ApiRequwests';
 
 ////////////////////  HW-05  //////////////////
 
-const App = () => {
-  const { movieId } = useParams;
+// fetchMoviesTrend(3);
+// fetchMoviesTrend(2);
 
+const App = () => {
   return (
     <div>
       <Header />

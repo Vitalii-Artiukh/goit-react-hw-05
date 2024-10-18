@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import SearchMovies from '../components/searchMovies/SearchMovies';
+import { useParams } from 'react-router-dom';
 
 const MoviesPage = () => {
-  return <div>MoviesPage</div>;
+  const { movieId } = useParams;
+
+  useEffect(() => {
+    if (!movieId) {
+      return;
+    }
+  }, [movieId]);
+
+  return (
+    <div>
+      <SearchMovies />
+    </div>
+  );
 };
 
 export default MoviesPage;
