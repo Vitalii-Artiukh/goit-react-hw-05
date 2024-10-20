@@ -1,0 +1,9 @@
+.h1Title {
+  margin-bottom: 28px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}

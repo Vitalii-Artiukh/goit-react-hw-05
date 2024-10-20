@@ -21,19 +21,15 @@ import './App.module.css';
 import clsx from 'clsx';
 import { object } from 'prop-types';
 import { NavLink, Route, Routes, useParams } from 'react-router-dom';
-import Header from './Header/Header';
+import Header from './Navigation/Navigation';
 import HomePage from '../pages/HomePage';
 import MoviesPage from '../pages/MoviesPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import MovieDetailsPage from '../pages/MovieDetailsPage';
 import MovieCast from './MovieCast/MovieCast';
 import MovieReviews from './MovieReviews/MovieReviews';
-import { fetchMoviesTrend } from './API/ApiRequwests';
 
 ////////////////////  HW-05  //////////////////
-
-// fetchMoviesTrend(3);
-// fetchMoviesTrend(2);
 
 const App = () => {
   return (

@@ -29,3 +29,17 @@ MovieDetailsPage, тому файли цих компонентів зберіг
 двох компонентів NavLink, які вказують на маршрути / і /movies. Для відображення
 списку фільмів створіть компонент MovieList. Використовуйте його на сторінках
 HomePage і MoviesPage.
+
+/////////////
+
+poster_path
+
+title // production_countries.name
+
+popularity
+
+overview
+
+genres.name
+
+release_date ???
