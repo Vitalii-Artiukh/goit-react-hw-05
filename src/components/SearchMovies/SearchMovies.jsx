@@ -3,11 +3,27 @@ import React from 'react';
 import css from './SearchMovies.module.css';
 import { useSearchParams } from 'react-router-dom';
 
-const SearchMovies = () => {
+const SearchMovies = ({ setSearchQuery }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const handleSubmit = value => {
-    setSearchParams({ query: value });
+  const handleSubmit = event => {
+    event.preventDefault();
+    const queryMovies = event.target.elements.search.value;
+    setSearchParams({ query: queryMovies });
+    setSearchQuery(queryMovies);
   };
+
+  // console.log({ searchParams });
+
+  // const Form = ({ onAdd }) => {
+  //   const handleSubmit = event => {
+  //     event.preventDefault();
+
+  //     onAdd({
+  //       id: Date.now(),
+  //       text: event.target.elements.text.value,
+  //     });
+  //     event.target.reset();
+  //   };
 
   const searchMovies = searchParams.get('query');
 
@@ -20,7 +36,7 @@ const SearchMovies = () => {
           name="search"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movies"
         />
         <button className={clsx(css.submit)} type="submit">
           Search

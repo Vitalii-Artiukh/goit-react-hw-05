@@ -1,29 +1,33 @@
 import { React, useEffect, useState } from 'react';
-import { fetchMoviesCredits } from '../API/ApiRequwests';
+import { defaultImg, fetchMoviesCredits } from '../API/ApiRequwests';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import css from './MovieCast.module.css';
 
-const MovieCast = ({ id }) => {
+const MovieCast = () => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [castId, setCastId] = useState('');
   const [cast, setCast] = useState([]);
+  const location = useLocation();
+  const id = location.state.movieId;
 
   useEffect(() => {
-    const addCastDetaile = async () => {
+    const addCastDetails = async () => {
       try {
         setError(false);
-        setCastId(id);
-        const castData = await fetchMoviesCredits(castId);
+        setCastId(location.state.movieId);
+        const castData = await fetchMoviesCredits(id);
         setCast(castData.cast);
       } catch (error) {
         setError(true);
         setErrorMessage(error.message);
       }
     };
-    addCastDetaile(id);
+    addCastDetails();
   }, [castId]);
+
+  console.log(castId);
 
   return (
     <div>
@@ -31,21 +35,23 @@ const MovieCast = ({ id }) => {
         <ErrorMessage errorMessage={errorMessage} />
       ) : (
         cast.length > 0 && (
-          <div>
+          <ul>
             {cast.map(i => (
-              <Link
-                key={i.id}
-                to={`/movies/${castId}/cast`}
-                className={css.link}
-              >
+              <li key={i.id} className={css.link}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${i.profile_path}`}
+                  src={
+                    i.profile_path
+                      ? `https://image.tmdb.org/t/p/w500${i.profile_path}`
+                      : defaultImg
+                  }
                   alt={i.name}
-                  style={{ width: 100 }}
+                  style={{ width: 130 }}
                 />
-              </Link>
+                <h4>{i.name}</h4>
+                <p>{i.character}</p>
+              </li>
             ))}
-          </div>
+          </ul>
         )
       )}
     </div>

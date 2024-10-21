@@ -21,22 +21,3 @@ export const Header = () => {
     </header>
   );
 };
-
-const moviesActive = ({ isActive }) => {
-  return clsx(css.links, isActive && css.active);
-};
-
-export const MovieDetailsLinks = () => {
-  return (
-    <div>
-      <nav className={css.linksDetails}>
-        <NavLink to="cast" className={moviesActive}>
-          Cast
-        </NavLink>
-        <NavLink to="reviews" className={moviesActive}>
-          Reviews
-        </NavLink>
-      </nav>
-    </div>
-  );
-};

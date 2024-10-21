@@ -1,21 +1,24 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import SearchMovies from '../components/searchMovies/SearchMovies';
 import { useParams } from 'react-router-dom';
+import { fetchMoviesSearch } from '../components/API/ApiRequwests';
 
 const MoviesPage = () => {
-  const { movieId } = useParams;
-  console.log(movieId);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  console.log(searchQuery);
 
   useEffect(() => {
-    if (!movieId) {
-      return;
-    }
-    console.log(movieId);
-  }, [movieId]);
+    const searchMovies = () => {
+      if (!movieId) {
+        return;
+      }
+    };
+  }, [searchQuery]);
 
   return (
     <div>
-      <SearchMovies />
+      <SearchMovies setSearchQuery={setSearchQuery} />
     </div>
   );
 };

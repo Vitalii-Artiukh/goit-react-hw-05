@@ -9,6 +9,7 @@ import {
   useRef,
   forwardRef,
   createContext,
+  Suspense,
 } from 'react';
 import Modal from 'react-modal';
 import reactLogo from '../assets/react.svg';
@@ -35,16 +36,18 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-        </Route>
+      <Suspense>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 };
