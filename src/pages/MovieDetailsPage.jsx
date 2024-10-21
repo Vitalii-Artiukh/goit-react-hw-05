@@ -1,10 +1,14 @@
 import { React, useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './MovieDetailsPage.module.css';
 import { fetchMoviesId } from '../components/API/ApiRequwests';
 import Loader from '../components/Loader/Loader';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import MovieDetails from '../components/MovieDetails/MovieDetails';
+import { MovieDetailsLinks } from '../components/Navigation/Navigation';
+import MovieCast from '../components/MovieCast/MovieCast';
+import MovieReviews from '../components/MovieReviews/MovieReviews';
 
 const moviesActive = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -16,10 +20,6 @@ const MovieDetailsPage = () => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [genres, setGenres] = useState([]);
-
-  const id = movieId;
-  console.log(id);
 
   useEffect(() => {
     const addDataMovie = async () => {
@@ -27,9 +27,7 @@ const MovieDetailsPage = () => {
         setMovieData(null);
         setLoading(true);
         setError(false);
-        const data = await fetchMoviesId(id);
-        setGenres(data.genres);
-        console.log(data);
+        const data = await fetchMoviesId(movieId);
         setMovieData(data);
       } catch (error) {
         setError(true);
@@ -39,7 +37,7 @@ const MovieDetailsPage = () => {
       }
     };
     addDataMovie();
-  }, [id]);
+  }, [movieId]);
 
   return (
     <div>
@@ -47,67 +45,12 @@ const MovieDetailsPage = () => {
       {error ? (
         <ErrorMessage errorMessage={errorMessage} />
       ) : (
-        movieData && (
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-              alt={movieData.title}
-            />
-            <div>
-              <h2>{movieData.title}</h2>
-              <p>Popularity {movieData.popularity}</p>
-              <h3>Overview</h3>
-              <p>{movieData.overview}</p>
-              <h3>Genres</h3>
-              <ul>
-                {genres.map(genre => (
-                  <li key={genre.id}>{genre.name}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )
-      )}
-      {movieData && (
-        <nav className={css.linksDetails}>
-          <NavLink to="cast" className={moviesActive}>
-            Cast
-          </NavLink>
-          <NavLink to="reviews" className={moviesActive}>
-            Reviews
-          </NavLink>
-        </nav>
+        <MovieDetails movieData={movieData} />
       )}
 
-      {/* error ? (
-      <ErrorMessage errorMessage={errorMessage} />) : (
-      <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-          alt={movieData.title}
-        />
-        <div>
-          <h2>{movieData.title}</h2>
-          <p>Popularity {movieData.popularity}</p>
-          <h3>Overview</h3>
-          <p>{movieData.overview}</p>
-          <h3>Genres</h3>
-          <ul>
-            {genres.map(genre => (
-              <li key={genre.id}>{genre.name}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <nav className={css.linksDetails}>
-        <NavLink to="cast" className={moviesActive}>
-          Cast
-        </NavLink>
-        <NavLink to="reviews" className={moviesActive}>
-          Reviews
-        </NavLink>
-      </nav>
-      ) */}
+      {movieData && <MovieDetailsLinks />}
+      <MovieCast id={movieId} />
+      <MovieReviews id={movieId} />
     </div>
   );
 };

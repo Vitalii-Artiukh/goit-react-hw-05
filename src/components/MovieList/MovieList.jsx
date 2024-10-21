@@ -29,7 +29,6 @@ const MovieList = () => {
     };
     addTrendMovies();
   }, []);
-  console.log(movieList);
 
   return (
     <div>

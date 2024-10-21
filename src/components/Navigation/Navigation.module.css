@@ -20,6 +20,14 @@
   gap: 16px;
 }
 
-.active {
+.link.active {
   background-color: rgb(87, 90, 90);
+}
+
+.links {
+  color: red;
+}
+
+.links.active {
+  background-color: aliceblue;
 }

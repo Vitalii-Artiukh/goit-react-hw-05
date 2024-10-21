@@ -21,7 +21,7 @@ import './App.module.css';
 import clsx from 'clsx';
 import { object } from 'prop-types';
 import { NavLink, Route, Routes, useParams } from 'react-router-dom';
-import Header from './Navigation/Navigation';
+import { Header } from './Navigation/Navigation';
 import HomePage from '../pages/HomePage';
 import MoviesPage from '../pages/MoviesPage';
 import NotFoundPage from '../pages/NotFoundPage';

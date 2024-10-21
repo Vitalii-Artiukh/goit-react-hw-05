@@ -7,7 +7,7 @@ const headerActive = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className={clsx(css.header)}>
       <nav className={clsx(css.linksWrapper)}>
@@ -22,4 +22,21 @@ const Header = () => {
   );
 };
 
-export default Header;
+const moviesActive = ({ isActive }) => {
+  return clsx(css.links, isActive && css.active);
+};
+
+export const MovieDetailsLinks = () => {
+  return (
+    <div>
+      <nav className={css.linksDetails}>
+        <NavLink to="cast" className={moviesActive}>
+          Cast
+        </NavLink>
+        <NavLink to="reviews" className={moviesActive}>
+          Reviews
+        </NavLink>
+      </nav>
+    </div>
+  );
+};

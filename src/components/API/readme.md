@@ -32,14 +32,19 @@ HomePage і MoviesPage.
 
 /////////////
 
-poster_path
-
-title // production_countries.name
-
-popularity
-
-overview
-
-genres.name
-
+poster_path title // production_countries.name popularity overview genres.name
 release_date ???
+
+////// cast.map()
+
+profile_path:
+
+name:
+
+character:
+
+///// reviews results.map()
+
+results.author:
+
+results.content:

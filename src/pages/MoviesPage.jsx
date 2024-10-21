@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const MoviesPage = () => {
   const { movieId } = useParams;
+  console.log(movieId);
 
   useEffect(() => {
     if (!movieId) {
@@ -11,7 +12,6 @@ const MoviesPage = () => {
     }
     console.log(movieId);
   }, [movieId]);
-  console.log(movieId);
 
   return (
     <div>
