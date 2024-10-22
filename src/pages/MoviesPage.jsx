@@ -1,10 +1,10 @@
 import { React, useEffect, useState } from 'react';
-import SearchMovies from '../components/searchMovies/SearchMovies';
 import { useSearchParams } from 'react-router-dom';
 import { fetchMoviesSearch } from '../components/API/ApiRequwests';
 import MovieList from '../components/MovieList/MovieList';
 import Loader from '../components/Loader/Loader';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import SearchMovies from '../components/searchMovies/SearchMovies';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
