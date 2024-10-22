@@ -23,10 +23,10 @@ const MoviesPage = () => {
 
   useEffect(() => {
     const searchMovies = async () => {
+      if (searchQuery === null) {
+        return;
+      }
       try {
-        if (searchQuery === null) {
-          return;
-        }
         setError(false);
         setLoading(true);
         const data = await fetchMoviesSearch(searchQuery, page);
@@ -40,7 +40,7 @@ const MoviesPage = () => {
       }
     };
     searchMovies();
-  }, [searchQuery]);
+  }, [searchQuery, page]);
 
   return (
     <div>
