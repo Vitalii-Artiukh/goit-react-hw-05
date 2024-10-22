@@ -1,34 +1,23 @@
 import {
-  Children,
-  useState,
   react,
-  useEffect,
-  Component,
-  useId,
-  useMemo,
   useRef,
   forwardRef,
   createContext,
   Suspense,
+  lazy,
 } from 'react';
-import Modal from 'react-modal';
-import reactLogo from '../assets/react.svg';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
-import axios from 'axios';
 import css from './App.module.css';
 import './App.module.css';
 import clsx from 'clsx';
-import { object } from 'prop-types';
-import { NavLink, Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Header } from './Navigation/Navigation';
-import HomePage from '../pages/HomePage';
-import MoviesPage from '../pages/MoviesPage';
-import NotFoundPage from '../pages/NotFoundPage';
-import MovieDetailsPage from '../pages/MovieDetailsPage';
-import MovieCast from './MovieCast/MovieCast';
-import MovieReviews from './MovieReviews/MovieReviews';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
+const MoviesPage = lazy(() => import('../pages/MoviesPage'));
+const MovieDetailsPage = lazy(() => import('../pages/MovieDetailsPage'));
+const MovieCast = lazy(() => import('./MovieCast/MovieCast'));
+const MovieReviews = lazy(() => import('./MovieReviews/MovieReviews'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 ////////////////////  HW-05  //////////////////
 

@@ -1,31 +1,13 @@
 import clsx from 'clsx';
 import React from 'react';
 import css from './SearchMovies.module.css';
-import { useSearchParams } from 'react-router-dom';
 
-const SearchMovies = ({ setSearchQuery }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+const SearchMovies = ({ onSearch }) => {
   const handleSubmit = event => {
     event.preventDefault();
     const queryMovies = event.target.elements.search.value;
-    setSearchParams({ query: queryMovies });
-    setSearchQuery(queryMovies);
+    onSearch(queryMovies);
   };
-
-  // console.log({ searchParams });
-
-  // const Form = ({ onAdd }) => {
-  //   const handleSubmit = event => {
-  //     event.preventDefault();
-
-  //     onAdd({
-  //       id: Date.now(),
-  //       text: event.target.elements.text.value,
-  //     });
-  //     event.target.reset();
-  //   };
-
-  const searchMovies = searchParams.get('query');
 
   return (
     <div>

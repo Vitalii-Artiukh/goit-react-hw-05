@@ -10,7 +10,7 @@ const MovieReviews = () => {
   const [reviewsId, setReviewsId] = useState('');
   const [reviews, setReviews] = useState([]);
   const location = useLocation();
-  const id = location.state.movieId;
+  const id = location.state?.movieId || '';
 
   useEffect(() => {
     const addReviewsDetails = async () => {
@@ -19,6 +19,11 @@ const MovieReviews = () => {
         setReviewsId(location.state.movieId);
         const reviewsData = await fetchMoviesReviews(id);
         setReviews(reviewsData.results);
+
+        window.scrollBy({
+          top: 300,
+          behavior: 'smooth',
+        });
       } catch (error) {
         setError(true);
         setErrorMessage(error.message);

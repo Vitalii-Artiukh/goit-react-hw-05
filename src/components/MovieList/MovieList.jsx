@@ -1,15 +1,13 @@
-import { React, useEffect, useState } from 'react';
-import { defaultImg, fetchMoviesTrend } from '../API/ApiRequwests';
-import Loader from '../Loader/Loader';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import { React } from 'react';
+import { defaultImg } from '../API/ApiRequwests';
 import css from './MovieList.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
-const MovieList = ({ movieList }) => {
+const MovieList = ({ movieList, title }) => {
   const location = useLocation();
   return (
     <div>
-      <h1 className={css.h1Title}>Trending today</h1>
+      {title !== '' && <h2 className={css.h1Title}>{title}</h2>}
       <div className={css.list}>
         {movieList.map(mov => (
           <Link

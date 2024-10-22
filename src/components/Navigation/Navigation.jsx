@@ -12,7 +12,7 @@ export const Header = () => {
     <header className={clsx(css.header)}>
       <nav className={clsx(css.linksWrapper)}>
         <NavLink to="/" className={headerActive}>
-          Home
+          In trend
         </NavLink>
         <NavLink to="/movies" className={headerActive}>
           Movies
