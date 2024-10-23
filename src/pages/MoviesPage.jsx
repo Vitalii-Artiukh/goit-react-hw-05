@@ -5,6 +5,8 @@ import MovieList from '../components/MovieList/MovieList';
 import Loader from '../components/Loader/Loader';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import SearchMovies from '../components/SearchMovies/SearchMovies';
+import clsx from 'clsx';
+import css from './MoviesPage.module.css';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,7 +45,7 @@ const MoviesPage = () => {
   }, [searchQuery, page]);
 
   return (
-    <div>
+    <div className={clsx(css.wrapper)}>
       <SearchMovies onSearch={onSearch} />
 
       {loading && <Loader />}

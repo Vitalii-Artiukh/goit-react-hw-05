@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  align-content: flex-start;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.h2 {
+  color: rgb(228, 228, 120);
+  margin-bottom: 4px;
+}
+
+.popularity {
+  margin-bottom: 12px;
+}
+
+.overviewTitle {
+  color: white;
+  margin-bottom: 4px;
+}
+
+.overviewText {
+  max-width: 600px;
+  margin-bottom: 12px;
+}
+
+.genresTitle {
+  color: white;
+  margin-bottom: 4px;
+}
+
+.listGenres {
+  margin-left: 15px;
+}

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import { FaSearch } from 'react-icons/fa';
 import css from './SearchMovies.module.css';
 
 const SearchMovies = ({ onSearch }) => {
@@ -10,7 +11,7 @@ const SearchMovies = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className={clsx(css.formWrapper)}>
       <form className={clsx(css.form)} onSubmit={handleSubmit}>
         <input
           className={clsx(css.input)}
@@ -21,7 +22,7 @@ const SearchMovies = ({ onSearch }) => {
           placeholder="Search movies"
         />
         <button className={clsx(css.submit)} type="submit">
-          Search
+          <FaSearch />
         </button>
       </form>
     </div>

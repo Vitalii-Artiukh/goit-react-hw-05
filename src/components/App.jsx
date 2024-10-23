@@ -13,7 +13,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 const App = () => {
   return (
-    <div>
+    <div className={clsx(css.wrapper)}>
       <Header />
       <Suspense>
         <Routes>

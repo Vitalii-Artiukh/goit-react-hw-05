@@ -1,0 +1,22 @@
+.notWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 54px;
+  gap: 16px;
+}
+
+.notTitle {
+  color: rgb(228, 228, 120);
+}
+
+.homeBtn {
+  background-color: rgb(35, 47, 108);
+  border: none;
+  padding: 6px 24px;
+  cursor: pointer;
+}
+
+.homeBtn:hover {
+  background-color: rgb(79, 87, 127);
+}

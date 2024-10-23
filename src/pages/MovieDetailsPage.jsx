@@ -6,6 +6,7 @@ import {
   useNavigate,
   useLocation,
 } from 'react-router-dom';
+import { LiaBackspaceSolid } from 'react-icons/lia';
 import clsx from 'clsx';
 import css from './MovieDetailsPage.module.css';
 import { fetchMoviesId } from '../components/API/ApiRequwests';
@@ -31,7 +32,7 @@ const MovieDetailsPage = () => {
     const addDataMovie = async () => {
       try {
         setMovieData(null);
-        setLoading(true);
+        // setLoading(true);
         setError(false);
         const data = await fetchMoviesId(movieId);
         setMovieData(data);
@@ -52,11 +53,11 @@ const MovieDetailsPage = () => {
   };
 
   return (
-    <div>
-      {loading && <Loader />}
+    <div className={clsx(css.wrapper)}>
+      <div className={clsx(css.load)}>{loading && <Loader />}</div>
 
       <button onClick={goBack} className={css.btnBack}>
-        Go Back
+        <LiaBackspaceSolid className={clsx(css.btnIcon)} />
       </button>
 
       {error ? (
@@ -67,15 +68,11 @@ const MovieDetailsPage = () => {
 
       {movieData && (
         <nav className={css.linksDetails}>
-          <NavLink
-            state={{ from: backUrl, movieId }}
-            to="cast"
-            className={moviesActive}
-          >
+          <NavLink state={{ from: backUrl }} to="cast" className={moviesActive}>
             Cast
           </NavLink>
           <NavLink
-            state={{ from: backUrl, movieId }}
+            state={{ from: backUrl }}
             to="reviews"
             className={moviesActive}
           >

@@ -1,0 +1,6 @@
+.hpWrapper {
+  margin-top: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

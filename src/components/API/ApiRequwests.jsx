@@ -30,8 +30,6 @@ export const fetchMoviesId = async id => {
   return data;
 };
 
-/////
-
 export const fetchMoviesSearch = async (q, page) => {
   const response = await instanceMovies.get(
     `/search/movie?query=${q}&page=${page}`
@@ -40,25 +38,14 @@ export const fetchMoviesSearch = async (q, page) => {
   return data;
 };
 
-// fetchMoviesSearch('betmen', 1);
-//////////
-
-//  cast
-
 export const fetchMoviesCredits = async id => {
   const response = await instanceMovies.get(`/movie/${id}/credits`);
   const data = response.data;
   return data;
 };
 
-// fetchMoviesCredits('414906');
-
-//  reviews
-
 export const fetchMoviesReviews = async id => {
   const response = await instanceMovies.get(`/movie/${id}/reviews`);
   const data = response.data;
   return data;
 };
-
-// fetchMoviesReviews('414906');

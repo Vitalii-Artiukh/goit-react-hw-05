@@ -3,6 +3,7 @@ import { fetchMoviesTrend } from '../components/API/ApiRequwests';
 import MovieList from '../components/MovieList/MovieList';
 import Loader from '../components/Loader/Loader';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import css from './HomePage.module.css';
 
 const HomePage = () => {
   const [movieList, setMovieList] = useState([]);
@@ -31,7 +32,7 @@ const HomePage = () => {
   }, [page]);
 
   return (
-    <div>
+    <div className={css.hpWrapper}>
       {loading && <Loader />}
       {error ? (
         <ErrorMessage errorMessage={errorMessage} />

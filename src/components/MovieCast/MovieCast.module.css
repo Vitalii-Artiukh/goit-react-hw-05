@@ -1,0 +1,16 @@
+.photoList {
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.link {
+  width: 150px;
+  height: 318px;
+  border: 1px solid rgba(255, 255, 0, 0.097);
+}
+
+.name {
+  color: rgb(228, 228, 120);
+}
