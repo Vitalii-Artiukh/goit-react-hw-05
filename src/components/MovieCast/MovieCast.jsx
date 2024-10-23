@@ -10,14 +10,17 @@ const MovieCast = () => {
   const [castId, setCastId] = useState('');
   const [cast, setCast] = useState([]);
   const location = useLocation();
-  const id = location.state?.movieId || '';
+  const { movieId } = useParams();
+
+  // const id = location.state?.movieId;
+  // console.log(movieId);
 
   useEffect(() => {
     const addCastDetails = async () => {
       try {
         setError(false);
         setCastId(location.state.movieId);
-        const castData = await fetchMoviesCredits(id);
+        const castData = await fetchMoviesCredits(movieId);
         setCast(castData.cast);
 
         window.scrollBy({

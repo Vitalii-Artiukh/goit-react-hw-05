@@ -11,7 +11,7 @@ const Loader = () => {
         color="#4fa94d"
         ariaLabel="progress-bar-loading"
         wrapperStyle={{}}
-        wrapperClass=""
+        wrapperClass="loader"
       />
     </div>
   );
